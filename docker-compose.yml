@@ -1,0 +1,26 @@
+version: '3.2'
+
+services:
+  node.local:
+    container_name: node.local
+    build:
+      context: .
+      dockerfile: Dockerfile-node
+    ports:
+      - "1234:3000"
+    networks: 
+      - cloud
+  
+  graal.local:
+    container_name: graal.local
+    build:
+      context: .
+      dockerfile: Dockerfile-graal
+    ports:
+      - "4567:3000"
+    networks: 
+      - cloud
+
+
+networks:
+  cloud:

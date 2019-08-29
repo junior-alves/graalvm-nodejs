@@ -1,0 +1,11 @@
+FROM node:8-alpine
+
+RUN apk --update add alpine-sdk yarn
+
+WORKDIR /usr/src
+
+COPY . .
+
+RUN yarn install
+
+CMD yarn start
